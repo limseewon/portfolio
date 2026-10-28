@@ -27,7 +27,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -41,16 +41,6 @@ body {
 }
 html.intro-on:not(.ready) body {
   overflow: hidden;
-}
-body::after {
-  /* 페이지 전체에 한지 결을 아주 옅게 */
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  background-image: var(--fiber);
-  opacity: 0.55;
 }
 
 a {
@@ -268,67 +258,43 @@ html.ready .hero-meta {
 /* 스크롤 등장: 먹이 번지듯 부드럽게 (JS가 켜져 있을 때만 적용) */
 html.js-rv .rv {
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(14px);
+  transform: translateY(16px);
   transition:
-    opacity 1.3s ease var(--d, 0s),
-    filter 1.3s ease var(--d, 0s),
-    transform 1.3s ease var(--d, 0s);
+    opacity 0.9s ease var(--d, 0s),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s);
 }
 html.js-rv .rv.in {
   opacity: 1;
-  filter: blur(0);
   transform: none;
 }
 
-/* ---------- Header : 중앙 로고를 양쪽 선이 잇는 구성 ---------- */
+/* ---------- Header : 높이가 변하지 않는 단정한 3단 구성 ---------- */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 30;
-  display: flex;
+  height: 68px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: clamp(16px, 2.4vw, 36px);
-  padding: 20px var(--pad);
+  padding: 0 var(--pad);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   transition:
-    background 0.4s,
-    padding 0.4s;
+    background-color 0.35s ease,
+    border-color 0.35s ease;
 }
-.header::before,
-.header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--line-2);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.header::before {
-  bottom: 0;
-}
-.header::after {
-  bottom: -4px;
-  background: var(--line);
-} /* 이중 괘선 */
 .header.scrolled {
-  padding-top: 13px;
-  padding-bottom: 13px;
-  background: rgba(12, 12, 11, 0.88);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-.header.scrolled::before,
-.header.scrolled::after {
-  opacity: 1;
+  background: #0c0c0b; /* 불투명: 뒤의 내용이 비쳐 어수선해 보이지 않게 */
+  border-bottom-color: var(--line);
 }
 
 .nav {
   display: flex;
   gap: 26px;
+  justify-self: start;
 }
 .nav a {
   color: var(--dim);
@@ -337,26 +303,6 @@ html.js-rv .rv.in {
 }
 .nav a:hover {
   color: var(--text);
-}
-
-.rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--line-2) 18%,
-    var(--line-2) 82%,
-    transparent
-  );
-}
-.rule:first-of-type {
-  background: linear-gradient(
-    90deg,
-    var(--line-2),
-    var(--line-2) 82%,
-    transparent
-  );
 }
 
 .brand {
@@ -379,6 +325,7 @@ html.js-rv .rv.in {
   text-transform: uppercase;
 }
 .hmeta {
+  justify-self: end;
   color: var(--dim);
   font-size: 12px;
   letter-spacing: 0.14em;
@@ -494,14 +441,14 @@ html.js-rv .rv.in {
   z-index: -1;
   background:
     radial-gradient(
-      ellipse 34% 52% at 50% 56%,
-      rgba(230, 224, 210, 0.07),
-      transparent 72%
+      ellipse 46% 62% at 50% 56%,
+      rgba(230, 224, 210, 0.045),
+      transparent 100%
     ),
     radial-gradient(
-      ellipse 60% 40% at 50% 100%,
-      rgba(230, 224, 210, 0.03),
-      transparent 70%
+      ellipse 70% 40% at 50% 100%,
+      rgba(230, 224, 210, 0.025),
+      transparent 100%
     );
   pointer-events: none;
 }
@@ -1419,9 +1366,12 @@ html.js-rv .rv.in {
     padding-bottom: 40px;
   }
   .header {
-    justify-content: space-between;
+    grid-template-columns: 1fr auto;
+    height: 60px;
   }
-  .rule,
+  .nav {
+    justify-self: end;
+  }
   .hmeta {
     display: none;
   }
