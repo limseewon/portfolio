@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지우 — 동양화</title>
+    <meta
+      name="description"
+      content="이화여자대학교 동양화 전공 지우의 포트폴리오" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%230c0c0b'/%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Cpath d='M0 0H48V30C40 36 32 34 24 34S10 29 0 35Z'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx='24' cy='22' r='13' fill='none' stroke='%23e6e0d2' stroke-width='1.6' clip-path='url(%23c)'/%3E%3Cpath d='M0 35C10 29 17 31 24 34S40 36 48 30' fill='none' stroke='%23e6e0d2' stroke-width='1.6'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      /* 인트로는 매번 재생, 모션 줄이기 설정이면 건너뜀 */
+      try {
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("intro-on");
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <!-- 인트로: 먹이 번지고, 마른 붓이 지나간 뒤 문이 열린다 -->
+    <div class="intro" id="intro" aria-hidden="true">
+      <div class="door door-l"></div>
+      <div class="door door-r"></div>
+      <div class="intro-inner">
+        <div class="halo"></div>
+        <div class="intro-name">지우</div>
+        <svg
+          class="brush"
+          viewBox="0 0 300 44"
+          preserveAspectRatio="none"
+          aria-hidden="true">
+          <defs>
+            <!-- 비백(마른 붓) 효과: 붓결 모양으로 군데군데 비어 보이게 -->
+            <filter id="dry" x="-5%" y="-40%" width="110%" height="180%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.014 0.75"
+                numOctaves="2"
+                seed="9"
+                result="t" />
+              <feColorMatrix
+                in="t"
+                type="matrix"
+                values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  10 0 0 0 -3.6"
+                result="m" />
+              <feComposite
+                in="SourceGraphic"
+                in2="m"
+                operator="in"
+                result="c" />
+              <feDisplacementMap in="c" in2="t" scale="2.2" />
+            </filter>
+          </defs>
+          <path
+            filter="url(#dry)"
+            fill="currentColor"
+            d="M3 23 C 38 12, 100 8, 162 12 S 264 16, 297 9 L 298 18 C 264 36, 192 39, 130 34 S 34 36, 3 29 Z" />
+        </svg>
+        <div class="intro-sub">Korean Painting</div>
+      </div>
+    </div>
+
+    <!-- 상단 -->
+    <header class="header" id="header">
+      <nav class="nav">
+        <a href="#works">작품</a>
+        <a href="#about">소개</a>
+        <a href="#contact">연락</a>
+      </nav>
+      <i class="rule" aria-hidden="true"></i>
+      <a href="#top" class="brand">지우<small>Jiwoo</small></a>
+      <i class="rule" aria-hidden="true"></i>
+      <span class="hmeta">Portfolio 2026</span>
+    </header>
+
+    <main id="top">
+      <!-- 첫 화면: 대표 작품 -->
+      <section class="hero">
+        <div class="hero-info">
+          <p class="eyebrow">Korean Painting</p>
+          <h1>지우</h1>
+          <p class="hero-sub">동양화<span></span>이화여자대학교</p>
+        </div>
+
+        <figure class="hero-work" id="heroWork"></figure>
+
+        <div class="hero-meta">
+          <p>Portfolio<br />2026</p>
+          <a class="btn" href="#works">작품 보기 <span>↓</span></a>
+        </div>
+      </section>
+
+      <!-- 키워드 띠 -->
+      <div class="marquee" aria-hidden="true">
+        <div class="m-track">
+          <span>수묵<i>水墨</i></span
+          ><em></em><span>담채<i>淡彩</i></span
+          ><em></em><span>한지<i>韓紙</i></span
+          ><em></em><span>여백<i>餘白</i></span
+          ><em></em> <span>수묵<i>水墨</i></span
+          ><em></em><span>담채<i>淡彩</i></span
+          ><em></em><span>한지<i>韓紙</i></span
+          ><em></em><span>여백<i>餘白</i></span
+          ><em></em> <span>수묵<i>水墨</i></span
+          ><em></em><span>담채<i>淡彩</i></span
+          ><em></em><span>한지<i>韓紙</i></span
+          ><em></em><span>여백<i>餘白</i></span
+          ><em></em> <span>수묵<i>水墨</i></span
+          ><em></em><span>담채<i>淡彩</i></span
+          ><em></em><span>한지<i>韓紙</i></span
+          ><em></em><span>여백<i>餘白</i></span
+          ><em></em>
+        </div>
+      </div>
+
+      <!-- 작품 -->
+      <section class="works" id="works" data-mode="screen">
+        <div class="bar">
+          <h2 class="title">
+            <b>작품</b><small>Works</small><span id="total"></span>
+          </h2>
+          <div class="arrows" id="arrows">
+            <button id="scPrev" aria-label="이전 작품">←</button>
+            <span id="scCount" class="count"></span>
+            <button id="scNext" aria-label="다음 작품">→</button>
+          </div>
+          <div class="toggle" role="group" aria-label="보기 방식">
+            <button class="on" data-mode="screen">병풍</button>
+            <button data-mode="grid">갤러리</button>
+          </div>
+        </div>
+
+        <!-- 병풍: 한 점이 펼쳐지고 나머지는 접힌 채 옆에 서 있다 -->
+        <div class="screen-wrap" id="screenWrap">
+          <div
+            class="screen"
+            id="screen"
+            tabindex="0"
+            aria-label="작품 병풍"></div>
+          <div class="screen-info" id="screenInfo" aria-live="polite"></div>
+        </div>
+
+        <div class="gallery" id="gallery"></div>
+      </section>
+
+      <!-- 소개 -->
+      <section class="about" id="about">
+        <h2 class="title"><b>소개</b><small>About</small></h2>
+        <div class="about-body">
+          <div class="about-top">
+            <div class="portrait">
+              <div class="mat">
+                <div class="pbox"><span>프로필 사진</span></div>
+              </div>
+            </div>
+            <div class="about-text">
+              <p class="statement">
+                작가 노트를 이곳에 적어주세요. 작업을 시작하게 된 계기와 즐겨
+                쓰는 재료, 그림으로 이야기하고 싶은 것을 세 문장 안팎으로
+                정리하면 좋습니다.
+              </p>
+              <ul class="keys">
+                <li>
+                  <b>재료</b><span>한지 · 먹 · 분채 <em>수정 가능</em></span>
+                </li>
+                <li>
+                  <b>기법</b><span>수묵담채 · 채색 <em>수정 가능</em></span>
+                </li>
+                <li><b>주제</b><span>작업의 주제를 적어주세요</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv">
+            <h3>학력</h3>
+            <ul>
+              <li>
+                <span>20XX –</span>
+                <p>이화여자대학교 동양화 전공 재학</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv">
+            <h3>전시</h3>
+            <ul>
+              <li>
+                <span>2026</span>
+                <p>전시 제목, 장소 <em>예시 · 수정해주세요</em></p>
+              </li>
+              <li>
+                <span>2025</span>
+                <p>전시 제목, 장소</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv">
+            <h3>수상</h3>
+            <ul>
+              <li>
+                <span>20XX</span>
+                <p>수상 내역을 적어주세요</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 연락 -->
+      <section class="contact" id="contact">
+        <h2 class="title"><b>연락</b><small>Contact</small></h2>
+        <div class="contact-body">
+          <p class="contact-lead">
+            작업에 관한 문의와 제안은 언제든 환영합니다.
+          </p>
+          <a class="mail" href="mailto:example@email.com">example@email.com</a>
+          <a
+            class="insta"
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener"
+            >Instagram ↗</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- 하단 -->
+    <footer class="footer">
+      <div class="ridge" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path
+            class="far"
+            vector-effect="non-scaling-stroke"
+            d="M0 62 C90 58 140 38 230 44 S360 66 450 52 S600 22 700 32 S860 60 960 50 S1120 30 1220 40 S1360 58 1440 50" />
+          <path
+            class="near"
+            vector-effect="non-scaling-stroke"
+            d="M0 80 C110 72 190 62 300 70 S470 84 580 72 S760 54 880 64 S1080 82 1200 70 S1360 64 1440 72" />
+        </svg>
+      </div>
+
+      <div class="foot-grid">
+        <div class="foot-id">
+          <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <clipPath id="aboveRidge">
+                <path d="M-4 -4H52V30C40 36 31 37 24 34C17 31 10 29 -4 36Z" />
+              </clipPath>
+            </defs>
+            <circle cx="24" cy="25" r="15.5" clip-path="url(#aboveRidge)" />
+            <path d="M0 35C10 29 17 31 24 34S40 36 48 30" />
+          </svg>
+          <div>
+            <strong>지우 <em>Jiwoo</em></strong>
+            <p>이화여자대학교 동양화 전공</p>
+          </div>
+        </div>
+        <p class="foot-note">© 2026 지우. All rights reserved.</p>
+        <a href="#top" class="totop">맨 위로 ↑</a>
+      </div>
+    </footer>
+
+    <!-- 확대 보기 -->
+    <div
+      class="lightbox"
+      id="lightbox"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true">
+      <div class="lb-top">
+        <span id="lbIndex"></span>
+        <button id="lbClose">닫기</button>
+      </div>
+      <div class="lb-media" id="lbMedia"></div>
+      <div class="lb-bottom">
+        <div>
+          <h3 id="lbTitle"></h3>
+          <p id="lbMeta"></p>
+        </div>
+        <div class="lb-arrows">
+          <button id="lbPrev" aria-label="이전">←</button>
+          <button id="lbNext" aria-label="다음">→</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
